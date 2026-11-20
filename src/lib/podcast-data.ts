@@ -25,7 +25,7 @@ export const EPISODES_DATA: Episode[] = [
     category: "Comedy",
     duration: "8hr 36m",
     bg: "#16936E",
-    image: "/images/episode_comedy_studio_1791851744000.jpg",
+    image: "/assets/images/episode_comedy_studio_1791851744000.jpg",
     description:
       "An expansive studio session unpacking improvisational timing, rule-of-three setups, and why unexpected acoustic pauses make audiences laugh hardest.",
     keyTakeaways: [
@@ -44,7 +44,7 @@ export const EPISODES_DATA: Episode[] = [
     category: "Politics",
     duration: "4hr 16m",
     bg: "#6152AB",
-    image: "/images/episode_political_host_1791851743740.jpg",
+    image: "/assets/images/episode_political_host_1791851743740.jpg",
     description:
       "Deconstructing electoral systems, coalition dynamics, and how civic rhetoric shifts across decades with comparative historians and policy analysts.",
     keyTakeaways: [
@@ -63,7 +63,7 @@ export const EPISODES_DATA: Episode[] = [
     category: "Science",
     duration: "2hr 15m",
     bg: "#C45731",
-    image: "/images/episode_science_studio_1795165807036.jpg",
+    image: "/assets/images/episode_science_studio_1795165807036.jpg",
     description:
       "How dopamine loops spark lifelong learning and why narrative audio activates deeper hippocampal memory encoding than passive reading.",
     keyTakeaways: [
@@ -89,7 +89,7 @@ export const HOSTS_DATA: HostProfile[] = [
     id: "julian",
     name: "Julian Vance",
     role: "Host & Lead Storyteller",
-    image: "/images/host_pill_man_1791851761626.jpg",
+    image: "/assets/images/host_pill_man_1791851761626.jpg",
     quote:
       "Curiosity is an instinct we never outgrow when the story is told right.",
     featuredEpisodeId: "01",
@@ -98,7 +98,7 @@ export const HOSTS_DATA: HostProfile[] = [
     id: "elena",
     name: "Elena Rostova",
     role: "Co-Host & Audio Producer",
-    image: "/images/studio_mic_interview_1791851742261.jpg",
+    image: "/assets/images/studio_mic_interview_1791851742261.jpg",
     quote:
       "Sound lets a listener inhabit a room before a single adjective is spoken.",
     featuredEpisodeId: "03",
@@ -107,7 +107,7 @@ export const HOSTS_DATA: HostProfile[] = [
     id: "maya",
     name: "Maya Chen",
     role: "Investigative Journalist",
-    image: "/images/hero_host_portrait_1791851741118.jpg",
+    image: "/assets/images/hero_host_portrait_1791851741118.jpg",
     quote:
       "Every overlooked footnote hides a human turning point worth hearing.",
     featuredEpisodeId: "02",
@@ -116,7 +116,7 @@ export const HOSTS_DATA: HostProfile[] = [
     id: "arthur",
     name: "Arthur Sterling",
     role: "Senior Historian & Host",
-    image: "/images/host_pill_senior_1791851761351.jpg",
+    image: "/assets/images/host_pill_senior_1791851761351.jpg",
     quote:
       "To understand why today sounds the way it does, listen to yesterday.",
     featuredEpisodeId: "02",
