@@ -2,11 +2,16 @@
 
 import { AudioPlayerDock } from "@/components/audio-player-dock/audio-player-dock";
 import { BingeDrawer } from "@/components/binge-drawer/binge-drawer";
-import { CurveDarkToSand } from "@/components/curved-transition/curved-transition";
+import {
+  CurveDarkToSand,
+  CurveSandToDark,
+} from "@/components/curved-transition/curved-transition";
 import { Hero } from "@/components/hero/hero";
+import { PodcastFacts } from "@/components/podcast-facts/podcast-facts";
 import { soundEngine } from "@/lib/audio";
 import { Episode, EPISODES_DATA } from "@/lib/podcast-data";
 import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useEffect, useState } from "react";
 
 export default function Home() {
@@ -119,6 +124,10 @@ export default function Home() {
       />
 
       <CurveDarkToSand />
+
+      <PodcastFacts />
+
+      <CurveSandToDark />
 
       <AudioPlayerDock
         currentEpisode={currentEpisode}
