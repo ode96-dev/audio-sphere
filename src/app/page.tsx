@@ -6,6 +6,7 @@ import {
   CurveDarkToSand,
   CurveSandToDark,
 } from "@/components/curved-transition/curved-transition";
+import { ExploringSound } from "@/components/exploring-sound/exploring-sound";
 import { Hero } from "@/components/hero/hero";
 import { PodcastFacts } from "@/components/podcast-facts/podcast-facts";
 import { soundEngine } from "@/lib/audio";
@@ -128,6 +129,11 @@ export default function Home() {
       <PodcastFacts />
 
       <CurveSandToDark />
+
+      <ExploringSound
+        onPlayEpisode={(id) => handlePlayEpisode(id)}
+        isPlaying={isPlaying && currentEpisode?.id === "01"}
+      />
 
       <AudioPlayerDock
         currentEpisode={currentEpisode}
