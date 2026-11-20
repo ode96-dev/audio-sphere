@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { ArrowUp } from "lucide-react";
 import { soundEngine } from "@/lib/audio";
 import { ContactModal } from "../contact-modal/contact-modal";
@@ -15,6 +15,13 @@ export function Footer() {
   const [currentEpisode, setCurrentEpisode] = useState<Episode | null>(null);
   const [elapsedSeconds, setElapsedSeconds] = useState<number>(0);
   const [totalDuration, setTotalDuration] = useState<number>(30);
+
+  const [year, setYear] = useState<number | null>(null);
+
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setYear(new Date().getFullYear());
+  }, []);
 
   const scrollToTop = () => {
     soundEngine.playPopSound();
@@ -161,10 +168,7 @@ export function Footer() {
           </div>
 
           <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-stone-400">
-            <p>
-              &copy; {new Date().getFullYear()} AudioSphere. All rights
-              reserved.
-            </p>
+            <p>&copy; {year ?? ""} AudioSphere. All rights reserved.</p>
 
             <button
               type="button"
