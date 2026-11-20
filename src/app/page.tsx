@@ -2,10 +2,12 @@
 
 import { AudioPlayerDock } from "@/components/audio-player-dock/audio-player-dock";
 import { BingeDrawer } from "@/components/binge-drawer/binge-drawer";
+import { CurveDarkToSand } from "@/components/curved-transition/curved-transition";
 import { Hero } from "@/components/hero/hero";
 import { soundEngine } from "@/lib/audio";
 import { Episode, EPISODES_DATA } from "@/lib/podcast-data";
-import { useState } from "react";
+import { gsap } from "gsap";
+import { useEffect, useState } from "react";
 
 export default function Home() {
   const [currentEpisode, setCurrentEpisode] = useState<Episode | null>(null);
@@ -13,6 +15,42 @@ export default function Home() {
   const [bingeOpen, setBingeOpen] = useState<boolean>(false);
   const [elapsedSeconds, setElapsedSeconds] = useState<number>(0);
   const [totalDuration, setTotalDuration] = useState<number>(30);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const prefersReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
+    if (prefersReducedMotion) return;
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    const ctx = gsap.context(() => {
+      gsap.to(".gsap-stamp-scroll", {
+        rotation: 90,
+        ease: "none",
+        scrollTrigger: {
+          trigger: "#hero",
+          start: "top top",
+          end: "bottom top",
+          scrub: 0.6,
+        },
+      });
+
+      gsap.to(".gsap-parallax-slow", {
+        y: -24,
+        ease: "none",
+        scrollTrigger: {
+          trigger: "#hero",
+          start: "top top",
+          end: "bottom top",
+          scrub: 0.8,
+        },
+      });
+    });
+
+    return () => ctx.revert();
+  }, []);
 
   const startPlayback = (targetEpisode: Episode, startAt = 0) => {
     setCurrentEpisode(targetEpisode);
@@ -79,6 +117,8 @@ export default function Home() {
         onOpenBinge={() => setBingeOpen(true)}
         isPlaying={isPlaying && currentEpisode?.id === "01"}
       />
+
+      <CurveDarkToSand />
 
       <AudioPlayerDock
         currentEpisode={currentEpisode}
