@@ -9,6 +9,7 @@ import {
 import { ExploringSound } from "@/components/exploring-sound/exploring-sound";
 import { Hero } from "@/components/hero/hero";
 import { PodcastFacts } from "@/components/podcast-facts/podcast-facts";
+import { SoundWavesGallery } from "@/components/sound-waves-gallery/sound-waves-gallery";
 import { soundEngine } from "@/lib/audio";
 import { Episode, EPISODES_DATA } from "@/lib/podcast-data";
 import { gsap } from "gsap";
@@ -133,6 +134,12 @@ export default function Home() {
       <ExploringSound
         onPlayEpisode={(id) => handlePlayEpisode(id)}
         isPlaying={isPlaying && currentEpisode?.id === "01"}
+      />
+
+      <SoundWavesGallery
+        onPlayEpisode={(id) => handlePlayEpisode(id)}
+        isPlaying={isPlaying && currentEpisode?.id === "02"}
+        elapsedSeconds={currentEpisode?.id === "02" ? elapsedSeconds : 0}
       />
 
       <AudioPlayerDock
